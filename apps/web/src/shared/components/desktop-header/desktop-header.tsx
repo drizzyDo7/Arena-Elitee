@@ -1,0 +1,75 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Trophy, Calendar, FileText, Home, Users } from "lucide-react";
+import { cn } from "@/shared/lib/utils";
+
+const NAV_ITEMS = [
+  { label: "Home", href: "/", icon: Home },
+  { label: "Ranking", href: "/ranking", icon: Trophy },
+  { label: "Calendário", href: "/calendario", icon: Calendar },
+  { label: "Regulamento", href: "/regulamento", icon: FileText },
+];
+
+const COMMUNITY_LINK = "https://chat.whatsapp.com/K6Ni8HK72Bw2us79Erk0t6";
+
+export function DesktopHeader() {
+  const pathname = usePathname();
+
+  return (
+    <header className="hidden md:block sticky top-0 z-50 bg-white border-b-4 border-black">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="bg-yellow-400 border-2 border-black p-1.5 rotate-3 group-hover:rotate-0 transition-transform shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+              <Trophy className="w-6 h-6 text-black" />
+            </div>
+            <span className="text-2xl font-black uppercase italic tracking-tighter text-black">
+              ARENA <span className="text-yellow-500">DE ELITE</span>
+            </span>
+          </Link>
+
+          <nav className="flex items-center gap-2">
+            {NAV_ITEMS.map((item) => {
+              const isActive = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative px-4 py-2 flex items-center gap-2 group",
+                    "text-[11px] font-black uppercase tracking-widest transition-all",
+                    isActive ? "text-black" : "text-black/60 hover:text-black"
+                  )}
+                >
+                  <item.icon className={cn(
+                    "w-4 h-4 transition-colors",
+                    isActive ? "text-yellow-500" : "text-black/40 group-hover:text-yellow-500"
+                  )} />
+                  {item.label}
+                  {isActive && (
+                    <div className="absolute -bottom-[28px] left-0 right-0 h-1.5 bg-yellow-400 border-x-2 border-t-2 border-black" />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            <div className="h-10 w-[2px] bg-black/10 mx-2" />
+            <a
+              href={COMMUNITY_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white border-2 border-black font-black uppercase italic text-[10px] tracking-widest hover:bg-green-600 transition-all shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
+            >
+              <Users className="w-4 h-4" />
+              Comunidade
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}

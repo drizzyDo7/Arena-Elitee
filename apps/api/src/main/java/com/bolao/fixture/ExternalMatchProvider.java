@@ -1,0 +1,21 @@
+package com.bolao.fixture;
+
+import com.bolao.fixture.entities.League;
+import com.bolao.fixture.entities.RoundDetails;
+import com.bolao.fixture.dtos.MatchResponseWrapper;
+import com.bolao.round.entities.Match;
+import java.util.List;
+
+public interface ExternalMatchProvider {
+  List<Match> fetchMatchesByRound(int leagueId, int season, String externalRoundId);
+
+  MatchResponseWrapper fetchAllMatchesForSeason(int leagueId, int season);
+
+  List<RoundDetails> fetchAvailableRounds(int leagueId, int season);
+
+  String getChampionshipName(int leagueId);
+
+  String getChampionshipLogo(int leagueId);
+
+  List<League> fetchLeagues(String country);
+}
