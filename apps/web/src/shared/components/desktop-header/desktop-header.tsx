@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { label: "Regulamento", href: "/regulamento", icon: FileText },
 ];
 
-const COMMUNITY_LINK = "https://chat.whatsapp.com/K6Ni8HK72Bw2us79Erk0t6";
+const COMMUNITY_LINK = "https://chat.whatsapp.com/CW62ybFF9Zr7oEzfWOuprq";
 
 export function DesktopHeader() {
   const pathname = usePathname();
