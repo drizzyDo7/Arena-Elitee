@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  outputFileTracingRoot: path.join(__dirname, "../../"),
   images: {
     remotePatterns: [
       {
@@ -17,7 +19,6 @@ const nextConfig: NextConfig = {
       "@radix-ui/react-label",
       "@radix-ui/react-select",
       "@radix-ui/react-slot",
-      "lucide-react",
     ],
   },
 };
