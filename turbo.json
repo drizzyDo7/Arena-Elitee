@@ -6,6 +6,11 @@
       "dependsOn": [
         "^build"
       ],
+      "env": [
+        "NEXT_PUBLIC_API_URL",
+        "ADMIN_PASSWORD",
+        "ADMIN_SESSION_SECRET"
+      ],
       "outputs": [
         ".next/**",
         "!.next/cache/**",
