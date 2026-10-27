@@ -32,7 +32,7 @@ const createActions = (openModal: () => void): ActionCard[] => [
     id: 3,
     title: "Comunidade",
     subtitle: "Grupo no WhatsApp",
-    href: "https://chat.whatsapp.com/K6Ni8HK72Bw2us79Erk0t6",
+    href: "https://chat.whatsapp.com/CW62ybFF9Zr7oEzfWOuprq",
     emoji: "💬",
     className: "text-slate-800",
   },
